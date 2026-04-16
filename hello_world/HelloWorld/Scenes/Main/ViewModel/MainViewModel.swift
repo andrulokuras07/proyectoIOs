@@ -25,6 +25,7 @@ class MainViewModel {
     }
     
     func validateForm() {
+        
         if (user.userName.isEmpty){
             userNameError = "Please enter a username"
         } else {

@@ -67,6 +67,9 @@ class MainViewController: UIViewController {
         guard let navigationController = navigationController else { return }
         let storyboard = "Main"
         let id = "Home"
+        let defaults = UserDefaults.standard
+        let userName = defaults.string(forKey: "userName") ?? ""
+        let password = defaults.string(forKey: "password") ?? ""
         
         let SecondVC = UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(identifier: id) {
             coder in
@@ -76,7 +79,13 @@ class MainViewController: UIViewController {
             return HomeViewController(coder: coder, viewModel: viewModel) // init()
         }
         
-        navigationController.pushViewController(SecondVC, animated: true)
+        if viewModel.user.userName == userName && viewModel.user.password == password {
+            navigationController.pushViewController(SecondVC, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Invalid credentials", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+        }
     }
 }
 

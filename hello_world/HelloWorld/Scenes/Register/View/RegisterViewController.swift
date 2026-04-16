@@ -103,6 +103,26 @@ class RegisterViewController: UIViewController {
         guard let navigationController = navigationController else { return }
         navigationController.popViewController(animated: true)
     }
+    
+    @IBAction func loginTapped() {
+
+        let defaults = UserDefaults.standard
+        let alert = UIAlertController(title: "Success", message: "User registered successfully", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            self.dismiss(animated: true)
+            defaults.set(false, forKey: "isLoggedIn")
+            defaults.set(self.viewModel.user.userName, forKey: "userName")
+            defaults.set(self.viewModel.user.name, forKey: "name")
+            defaults.set(self.viewModel.user.password, forKey: "password")
+            
+            guard let navigationController = self.navigationController else { return }
+            navigationController.popViewController(animated: true)
+        })
+        
+        self.present(alert, animated: true , completion: nil)
+    }
+    
 }
 
 extension RegisterViewController: UITextFieldDelegate {

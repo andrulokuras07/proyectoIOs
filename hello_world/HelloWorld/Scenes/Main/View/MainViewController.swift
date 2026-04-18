@@ -7,6 +7,8 @@
 
 import UIKit
 import Combine
+import Foundation
+import LocalAuthentication
 
 class MainViewController: UIViewController {
     
@@ -16,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var lblUserError: UILabel!
     @IBOutlet weak var lblPasswordError: UILabel!
+    @IBOutlet weak var btnFaceID: UIImageView!
     
     // MARK: - Propiedades privadas
     private let viewModel = MainViewModel()
@@ -87,6 +90,41 @@ class MainViewController: UIViewController {
             present(alert, animated: true)
         }
     }
+    
+    @IBAction func faceIDTapped() {
+        let context = LAContext()
+        var error: NSError? = nil
+        let canUseBiometrics = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        let defaults = UserDefaults.standard
+        if (canUseBiometrics && defaults.string(forKey: "userName")?.isEmpty == false) {
+            let reason = "Authenticate with face ID to access your data"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, error in
+                DispatchQueue.main.async {
+                    guard let self else {return}
+                    
+                    if success {
+                        print("Biometric authentication succesful")
+                        self.loginTapped()
+                    }
+                    else if let error = error {
+                        print ("Biometric authentication failed with error: \(error.localizedDescription)")
+                    }
+                    else {
+                        print("Biometric authentication was cancelled or failed")
+                    }
+                }
+            }
+        }
+        else {
+            let alert = UIAlertController(title: "Oops...", message: "You can't use this feature", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            present(alert, animated: true)
+        }
+        
+    }
+    
+    
 }
 
 extension MainViewController: UITextFieldDelegate {

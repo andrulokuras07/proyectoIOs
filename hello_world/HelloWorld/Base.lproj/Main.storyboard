@@ -102,6 +102,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="SW Black"/>
+                        <color key="tintColor" name="SW Yellow"/>
                         <constraints>
                             <constraint firstItem="D89-Na-1QH" firstAttribute="top" secondItem="GMm-ck-rlN" secondAttribute="bottom" constant="16" id="05L-EP-5Mm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5MV-I2-bRg" secondAttribute="bottom" constant="20" id="0yg-nr-aEg"/>
@@ -318,65 +319,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sDq-i0-aOk">
-                                <rect key="frame" x="16" y="188" width="361" height="510"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sDq-i0-aOk">
+                                <rect key="frame" x="16" y="188" width="361" height="500"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="QC3-rc-X0I">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                        <color key="backgroundColor" name="SW DarkGray"/>
+                                        <color key="tintColor" name="SW Yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="g05-S9-6lT"/>
+                                        </constraints>
+                                        <color key="textColor" name="SW Gray"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tv-h5-Cwn">
-                                        <rect key="frame" x="0.0" y="44" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="50" width="361" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre(s)" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="oKB-Kc-bnl">
-                                        <rect key="frame" x="0.0" y="104" width="361" height="34"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <rect key="frame" x="0.0" y="100" width="361" height="50"/>
+                                        <color key="backgroundColor" name="SW DarkGray"/>
+                                        <color key="tintColor" name="SW Yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="sDw-Qr-f2p"/>
+                                        </constraints>
+                                        <color key="textColor" name="SW Gray"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unX-Wf-DK4">
-                                        <rect key="frame" x="0.0" y="148" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="150" width="361" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido(s)" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="HE7-TB-j7a">
-                                        <rect key="frame" x="0.0" y="208" width="361" height="34"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <rect key="frame" x="0.0" y="200" width="361" height="50"/>
+                                        <color key="backgroundColor" name="SW DarkGray"/>
+                                        <color key="tintColor" name="SW Yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3zt-Jp-ezS"/>
+                                        </constraints>
+                                        <color key="textColor" name="SW Gray"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaW-Cc-EsX">
-                                        <rect key="frame" x="0.0" y="252" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="250" width="361" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="udu-Tu-Grf">
-                                        <rect key="frame" x="0.0" y="312" width="361" height="34"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <rect key="frame" x="0.0" y="300" width="361" height="50"/>
+                                        <color key="backgroundColor" name="SW DarkGray"/>
+                                        <color key="tintColor" name="SW Yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tz7-c1-7yQ"/>
+                                        </constraints>
+                                        <color key="textColor" name="SW Gray"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW2-aO-RPc">
-                                        <rect key="frame" x="0.0" y="356" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="350" width="361" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmar contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jee-jc-Zge">
-                                        <rect key="frame" x="0.0" y="416" width="361" height="34"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <rect key="frame" x="0.0" y="400" width="361" height="50"/>
+                                        <color key="backgroundColor" name="SW DarkGray"/>
+                                        <color key="tintColor" name="SW Yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="LCu-6A-TWn"/>
+                                        </constraints>
+                                        <color key="textColor" name="SW Gray"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUO-42-whz">
-                                        <rect key="frame" x="0.0" y="460" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="450" width="361" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -405,25 +431,30 @@
                                     <constraint firstAttribute="trailing" secondItem="oKB-Kc-bnl" secondAttribute="trailing" id="zf2-7T-Kpb"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiZ-Wv-8ag">
-                                <rect key="frame" x="140" y="727" width="112" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiZ-Wv-8ag">
+                                <rect key="frame" x="16" y="720" width="361" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34.333333333333371" id="ahW-nn-sHg"/>
+                                    <constraint firstAttribute="width" constant="361" id="D5N-cF-0OL"/>
+                                    <constraint firstAttribute="height" constant="40" id="XTj-Ip-Jhb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="361" id="x6I-mK-7f5"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" name="SW Yellow"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Registrate"/>
+                                <buttonConfiguration key="configuration" style="filled" title="REGÍSTRATE">
+                                    <color key="baseForegroundColor" name="SW DarkGray"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="loginTapped" destination="kUh-RD-6m2" eventType="touchUpInside" id="nrA-kc-Xhd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bBh-Ih-dfP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="SW Black"/>
+                        <color key="tintColor" name="SW Yellow"/>
                         <constraints>
                             <constraint firstItem="sDq-i0-aOk" firstAttribute="top" secondItem="bBh-Ih-dfP" secondAttribute="top" constant="16" id="5p1-Dn-x0I"/>
                             <constraint firstItem="bBh-Ih-dfP" firstAttribute="trailing" secondItem="sDq-i0-aOk" secondAttribute="trailing" constant="16" id="Cbe-JS-SeG"/>
-                            <constraint firstItem="HiZ-Wv-8ag" firstAttribute="leading" secondItem="bBh-Ih-dfP" secondAttribute="leading" constant="146.33333333333331" id="P6p-CI-uPG"/>
+                            <constraint firstItem="HiZ-Wv-8ag" firstAttribute="leading" secondItem="bBh-Ih-dfP" secondAttribute="leading" constant="16" id="P6p-CI-uPG"/>
                             <constraint firstItem="sDq-i0-aOk" firstAttribute="leading" secondItem="bBh-Ih-dfP" secondAttribute="leading" constant="16" id="eWU-PL-UWE"/>
                             <constraint firstItem="bBh-Ih-dfP" firstAttribute="bottom" secondItem="HiZ-Wv-8ag" secondAttribute="bottom" constant="24" id="kqU-MV-GSv"/>
                             <constraint firstItem="HiZ-Wv-8ag" firstAttribute="centerX" secondItem="sDq-i0-aOk" secondAttribute="centerX" id="nGa-xf-hyN"/>
@@ -491,9 +522,6 @@
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

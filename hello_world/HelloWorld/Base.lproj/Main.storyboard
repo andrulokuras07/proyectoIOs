@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -157,7 +158,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eSM-8A-xSe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="SW Black"/>
                         <constraints>
                             <constraint firstItem="eSM-8A-xSe" firstAttribute="trailing" secondItem="2fh-lZ-jKC" secondAttribute="trailing" constant="120" id="0nV-CK-O17"/>
                             <constraint firstItem="Sm1-Ls-UUa" firstAttribute="top" secondItem="eSM-8A-xSe" secondAttribute="top" constant="24" id="5be-LU-Ppm"/>
@@ -193,7 +194,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lzX-mZ-vTN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="SW Black"/>
                         <constraints>
                             <constraint firstItem="vgz-FQ-Hit" firstAttribute="top" secondItem="lzX-mZ-vTN" secondAttribute="top" constant="50" id="aEV-xT-Scr"/>
                             <constraint firstItem="vgz-FQ-Hit" firstAttribute="leading" secondItem="lzX-mZ-vTN" secondAttribute="leading" constant="24" id="iTh-xw-auT"/>
@@ -216,9 +217,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d2l-C3-P1F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="SW DarkGray"/>
                         <color key="tintColor" systemColor="systemRedColor"/>
-                        <color key="selectedImageTintColor" systemColor="systemRedColor"/>
+                        <color key="barTintColor" systemColor="linkColor"/>
+                        <color key="selectedImageTintColor" name="SW Yellow"/>
                     </tabBar>
                     <connections>
                         <segue destination="edo-vM-DkO" kind="relationship" relationship="viewControllers" id="4gv-wf-IxZ"/>
@@ -252,8 +254,9 @@
         <scene sceneID="hf4-Ms-xW5">
             <objects>
                 <navigationController title="Lista" automaticallyAdjustsScrollViewInsets="NO" id="edo-vM-DkO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Buscar" image="magnifyingglass" catalog="system" id="714-Wv-CFj">
-                        <color key="badgeColor" systemColor="systemRedColor"/>
+                    <tabBarItem key="tabBarItem" title="Buscar" id="714-Wv-CFj">
+                        <imageReference key="image" image="magnifyingglass" catalog="system"/>
+                        <color key="badgeColor" name="SW Yellow"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aKt-Wb-JJu">
@@ -273,8 +276,9 @@
         <scene sceneID="DTu-nZ-RxO">
             <objects>
                 <navigationController title="Perfil" automaticallyAdjustsScrollViewInsets="NO" id="zHH-iJ-ow5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Perfil" image="person.crop.circle" catalog="system" id="5Kv-bX-cH2">
-                        <color key="badgeColor" systemColor="systemRedColor"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" id="5Kv-bX-cH2">
+                        <imageReference key="image" image="person.crop.circle" catalog="system"/>
+                        <color key="badgeColor" name="SW Yellow"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c9T-mQ-iZz">
@@ -298,7 +302,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="rHt-9b-Zwa"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="SW Black"/>
                     </view>
                     <navigationItem key="navigationItem" id="oLE-3G-ivS"/>
                 </viewController>
@@ -448,7 +452,10 @@
         <scene sceneID="ceL-nx-LY1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rz7-G8-l7m" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favoritos" image="star.fill" catalog="system" id="gcp-1x-H4h"/>
+                    <tabBarItem key="tabBarItem" title="Favoritos" id="gcp-1x-H4h">
+                        <imageReference key="image" image="star.fill" catalog="system"/>
+                        <color key="badgeColor" name="SW Yellow"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q5D-8O-2b2">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
@@ -482,6 +489,9 @@
         <namedColor name="SW Yellow">
             <color red="1" green="0.9100000262260437" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

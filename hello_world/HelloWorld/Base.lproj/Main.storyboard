@@ -95,7 +95,7 @@
                                     <action selector="loginTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="YTk-lw-q8e"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" restorationIdentifier="FaceIDBtn" image="FaceID" translatesAutoresizingMaskIntoConstraints="NO" id="D89-Na-1QH">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" restorationIdentifier="FaceIDBtn" image="FaceID" translatesAutoresizingMaskIntoConstraints="NO" id="D89-Na-1QH">
                                 <rect key="frame" x="160" y="638" width="73" height="75.666666666666629"/>
                             </imageView>
                         </subviews>

@@ -37,8 +37,17 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         // Fin ocultar teclado
         
+        // BTNFACEID
+        let tapFaceID = UITapGestureRecognizer(
+            target: self,
+            action: #selector(faceIDTapped)
+        )
+        btnFaceID.addGestureRecognizer(tapFaceID)
+        // Fin
+        
         tfUser.delegate = self
         tfPassword.delegate = self
+        
         
         viewModel.$isValidForm
             .sink { [weak self] isValid in
@@ -66,6 +75,8 @@ class MainViewController: UIViewController {
             .store(in: &cancellable)
     }
     
+    
+    
     @IBAction func loginTapped() {
         guard let navigationController = navigationController else { return }
         let storyboard = "Main"
@@ -91,20 +102,31 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func faceIDTapped() {
+    @objc func faceIDTapped() {
         let context = LAContext()
         var error: NSError? = nil
         let canUseBiometrics = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         let defaults = UserDefaults.standard
+        guard let navigationController = navigationController else { return }
+        let id = "Home"
+        let storyboard = "Main"
+        let SecondVC = UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(identifier: id) {
+            coder in
+            self.viewModel.user.name = "Alexander Riggs Zermeño"
+            let model = HomeModel(user: self.viewModel.user)
+            let viewModel = HomeViewModel(model: model)
+            return HomeViewController(coder: coder, viewModel: viewModel) // init()
+        }
+        
         if (canUseBiometrics && defaults.string(forKey: "userName")?.isEmpty == false) {
             let reason = "Authenticate with face ID to access your data"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, error in
                 DispatchQueue.main.async {
-                    guard let self else {return}
+                    guard self != nil else {return}
                     
                     if success {
                         print("Biometric authentication succesful")
-                        self.loginTapped()
+                        navigationController.pushViewController(SecondVC, animated: true)
                     }
                     else if let error = error {
                         print ("Biometric authentication failed with error: \(error.localizedDescription)")

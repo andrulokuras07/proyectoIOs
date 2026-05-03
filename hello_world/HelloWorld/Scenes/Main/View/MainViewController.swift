@@ -5,6 +5,23 @@
 //  Created by Alumnos on 18/03/26.
 //
 
+// DESCRIPCIÓN: Pantalla de Login. Valida credenciales vs UserDefaults y soporta Face ID.
+// Usa MVVM con Combine: observa isValidForm, userNameError, passwordError del ViewModel.
+//
+// FUNCIONES:
+// - viewDidLoad(): Configura tap-to-dismiss, Face ID gesture, delegates y suscripciones Combine.
+// - loginTapped(): Compara credenciales con UserDefaults. Push a Home o muestra alerta de error.
+// - faceIDTapped(): Autentica con biométricos (LAContext). Push a Home si exitoso.
+//
+// EXTENSION UITextFieldDelegate:
+// - textFieldShouldReturn(): Oculta teclado con Return.
+// - textField(_:shouldChangeCharactersIn:): Captura keystroke, actualiza ViewModel, valida.
+// - setErrorBorder(): Aplica/quita borde rojo en text field según error.
+//
+// NOTAS:
+// - Todos los componentes son genéricos UIKit via IBOutlet (Main.storyboard).
+// - Navega a HomeViewController instanciando desde storyboard con inyección de ViewModel.
+
 import UIKit
 import Combine
 import Foundation

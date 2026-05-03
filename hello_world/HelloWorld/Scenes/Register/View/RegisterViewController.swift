@@ -5,6 +5,22 @@
 //  Created by Alumnos on 18/03/26.
 //
 
+// DESCRIPCIÓN: Formulario de registro con 5 campos validados con Combine.
+// Todos los componentes son genéricos UIKit via IBOutlet (Main.storyboard).
+//
+// FUNCIONES:
+// - viewDidLoad(): Tap-to-dismiss, delegates, 6 suscripciones Combine a errores.
+// - popViewController(): Regresa a la pantalla anterior.
+// - loginTapped(): Guarda usuario en UserDefaults, muestra alerta de éxito y regresa.
+//
+// EXTENSION UITextFieldDelegate:
+// - textFieldShouldReturn(): Oculta teclado.
+// - textField(_:shouldChangeCharactersIn:): Actualiza campo en ViewModel, valida.
+// - setErrorBorder(): Borde rojo si hay error.
+//
+// NOTAS:
+// - Persiste userName, name y password en UserDefaults al registrar.
+
 import UIKit
 import Combine
 

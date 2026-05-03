@@ -5,112 +5,71 @@
 //  Created by Alumnos on 27/03/26.
 //
 
+// DESCRIPCIÓN: Pantalla de perfil. Muestra foto, stats (likes/vistos) y botones cámara/galería.
+// Todo el UI está definido en Main.storyboard. Solo lógica en código.
+//
+// FUNCIONES:
+// - viewDidLoad(): Configura imagen placeholder y colores de borde.
+// - viewWillAppear(): Actualiza contadores de likes y vistos.
+// - cameraTapped()/galleryTapped(): Abre UIImagePickerController.
+//
+// NOTAS:
+// - Lee FavoritesViewController.favorites.count y CharacterDetailViewController.visitCount.
+// - La foto de perfil no se persiste (se pierde al cerrar la app).
+// - borderColor se configura en código (CGColor no se puede asignar desde storyboard).
+
 import UIKit
-import AVKit
-import AVFoundation
 
 class ProfileViewController: UIViewController {
     
-    var player: AVPlayer? // Reproductor de música
+    // MARK: - Componentes visuales
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var likesValueLabel: UILabel!
+    @IBOutlet weak var viewsValueLabel: UILabel!
     
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var searchImageBtn: UIButton!
+    // MARK: - Ciclo de vida
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let helpButton = UIBarButtonItem(title: "Hello", style: .plain, target: self, action: #selector(didTapHelp))
+        title = "Mi perfil"
         
-        let audioButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(didTapAudio))
-        audioButton.tintColor = .green
-        let stopButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapStop))
-        stopButton.tintColor = .red
+        // Imagen placeholder inicial
+        profileImage.image = UIImage(systemName: "photo")
         
-        navigationItem.rightBarButtonItems = [helpButton]
-        navigationItem.leftBarButtonItems = [stopButton, audioButton]
-        
+        // borderColor es CGColor, no se puede asignar desde storyboard
+        profileImage.layer.borderColor = UIColor.systemGray.cgColor
     }
     
-    @objc func viewWillDisappear( animated: Bool) {
-        super.viewWillDisappear(animated)
-        didTapStop()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Actualiza los contadores cada vez que se muestra la pantalla
+        likesValueLabel.text = "\(FavoritesViewController.favorites.count)"
+        viewsValueLabel.text = "\(CharacterDetailViewController.visitCount)"
     }
     
-    @objc func didTapHelp() {
-        let videoURLString = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-        guard let videoURL = URL(string: videoURLString) else {
-            print("Invalida video URL")
-            return
-        }
-        
-        let player = AVPlayer(url: videoURL)
-        
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        
-        present(playerViewController, animated: true)
+    // MARK: - Acciones
+    
+    @IBAction func cameraTapped() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
     }
     
-    @objc func didTapAudio() {
-        let audioURLString = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-        
-        guard let audioURL = URL(string: audioURLString) else {
-            print("Invalid audio URL")
-            return
-        }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            self.player = AVPlayer(url: audioURL)
-            
-            guard let player = self.player else {
-                print("Player is null")
-                return
-            }
-            
-            player.play()
-        }
-        catch let error {
-            print(error.localizedDescription)
-        }
-    }
-    
-    @objc func didTapStop() {
-        guard let player = self.player else {
-            print("Player is nil")
-            return
-        }
-        player.pause()
-        self.player = nil
-    }
-        
-    @IBAction func photoTapped() {
-        let alert = UIAlertController(title: "Select image from:", message: nil, preferredStyle: .actionSheet)
-        
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                let vc = UIImagePickerController()
-                vc.sourceType = .camera
-                vc.allowsEditing = true
-                vc.delegate = self
-                self.present(vc, animated: true)
-            }
-        }
-        
-        let fototecaAction = UIAlertAction(title: "Fototeca", style: .default) { (action) in
-            let vc = UIImagePickerController()
-            vc.sourceType = .photoLibrary
-            vc.allowsEditing = true
-            vc.delegate = self
-            self.present(vc, animated: true)
-        }
-        alert.addAction(cameraAction)
-        alert.addAction(fototecaAction)
-        self.present(alert, animated: true)
+    @IBAction func galleryTapped() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
     }
 }
+
+// MARK: - UIImagePickerControllerDelegate
 
 extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -122,7 +81,9 @@ extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerCo
             return
         }
         
-        self.image.image = image
+        // Cambia la presentación para mostrar la foto seleccionada
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.image = image
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

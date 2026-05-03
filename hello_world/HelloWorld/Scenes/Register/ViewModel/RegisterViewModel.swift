@@ -5,6 +5,17 @@
 //  Created by Alumnos on 20/03/26.
 //
 
+// DESCRIPCIÓN: ViewModel del Registro. Valida 5 campos con Combine.
+// Cada campo tiene su @Published de error + isValidForm global.
+//
+// FUNCIONES:
+// - validateForm(): Valida userName (4-20, alfanum, no inicia con número),
+//   name/lastName (2-30, solo letras), password (8+, mayúscula+minúscula+número),
+//   passwordCorrect (debe coincidir con password).
+//
+// NOTAS:
+// - user: getter/setter al modelo. Se invoca en cada keystroke.
+
 import Combine
 
 class RegisterViewModel {
@@ -17,14 +28,9 @@ class RegisterViewModel {
     @Published var confirmPasswordError: String = ""
     @Published var lastNameError: String = ""
 
-    
     var user: User {
-        get { // do something
-            return model.user
-        }
-        set { // var newValue: User
-            model.user = newValue
-        }
+        get { return model.user }
+        set { model.user = newValue }
     }
     
     func validateForm() {

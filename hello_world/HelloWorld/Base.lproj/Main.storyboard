@@ -305,9 +305,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pBr-St-019">
                                         <rect key="frame" x="0.0" y="481" width="361" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBc-Bt-020">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBc-Bt-020">
                                                 <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="50"/>
-                                                <buttonConfiguration key="configuration" title="Cámara" imagePadding="8">
+                                                <color key="backgroundColor" name="SW DarkGray"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cámara" imagePadding="8">
                                                     <imageReference key="image" image="camera.fill" catalog="system"/>
                                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                                 </buttonConfiguration>
@@ -315,9 +316,10 @@
                                                     <action selector="cameraTapped" destination="IA5-F6-wde" eventType="touchUpInside" id="pAc-001"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBg-Bt-021">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBg-Bt-021">
                                                 <rect key="frame" x="186.66666666666663" y="0.0" width="174.33333333333337" height="50"/>
-                                                <buttonConfiguration key="configuration" title="Galería" imagePadding="8">
+                                                <color key="backgroundColor" name="SW DarkGray"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Galería" imagePadding="8">
                                                     <imageReference key="image" image="photo.on.rectangle" catalog="system"/>
                                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                                 </buttonConfiguration>
@@ -361,32 +363,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgz-FQ-Hit">
-                                <rect key="frame" x="24" y="222" width="345" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <searchBar contentMode="redraw" placeholder="Buscar personajes" translatesAutoresizingMaskIntoConstraints="NO" id="lSB-sr-001">
+                                <rect key="frame" x="0.0" y="44" width="393" height="56"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vxq-SB-lrS">
-                                <rect key="frame" x="0.0" y="172" width="393" height="563"/>
+                                <rect key="frame" x="0.0" y="100" width="393" height="635"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops...&#10;Sorry, we couldn&#x27;t find any pokemon." textAlignment="center" numberOfLines="2" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-empt-001">
+                                <rect key="frame" x="24" y="380" width="345" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lzX-mZ-vTN"/>
                         <color key="backgroundColor" name="SW Black"/>
                         <constraints>
-                            <constraint firstItem="vxq-SB-lrS" firstAttribute="top" secondItem="lzX-mZ-vTN" secondAttribute="top" id="0qa-qd-i1g"/>
+                            <constraint firstItem="lSB-sr-001" firstAttribute="top" secondItem="lzX-mZ-vTN" secondAttribute="top" id="lSC-c-001"/>
+                            <constraint firstItem="lSB-sr-001" firstAttribute="leading" secondItem="lzX-mZ-vTN" secondAttribute="leading" id="lSC-c-002"/>
+                            <constraint firstItem="lzX-mZ-vTN" firstAttribute="trailing" secondItem="lSB-sr-001" secondAttribute="trailing" id="lSC-c-003"/>
+                            <constraint firstItem="vxq-SB-lrS" firstAttribute="top" secondItem="lSB-sr-001" secondAttribute="bottom" id="lSC-c-004"/>
                             <constraint firstItem="vxq-SB-lrS" firstAttribute="leading" secondItem="lzX-mZ-vTN" secondAttribute="leading" id="9Ai-iZ-wCF"/>
                             <constraint firstItem="vxq-SB-lrS" firstAttribute="bottom" secondItem="lzX-mZ-vTN" secondAttribute="bottom" id="RvN-sp-31T"/>
-                            <constraint firstItem="vgz-FQ-Hit" firstAttribute="top" secondItem="lzX-mZ-vTN" secondAttribute="top" constant="50" id="aEV-xT-Scr"/>
-                            <constraint firstItem="vgz-FQ-Hit" firstAttribute="leading" secondItem="lzX-mZ-vTN" secondAttribute="leading" constant="24" id="iTh-xw-auT"/>
                             <constraint firstItem="vxq-SB-lrS" firstAttribute="trailing" secondItem="lzX-mZ-vTN" secondAttribute="trailing" id="lBQ-n2-a6p"/>
-                            <constraint firstItem="lzX-mZ-vTN" firstAttribute="trailing" secondItem="vgz-FQ-Hit" secondAttribute="trailing" constant="24" id="zek-Y5-PH5"/>
+                            <constraint firstItem="lbl-empt-001" firstAttribute="centerX" secondItem="W8M-Ka-EhG" secondAttribute="centerX" id="lbl-c-001"/>
+                            <constraint firstItem="lbl-empt-001" firstAttribute="centerY" secondItem="W8M-Ka-EhG" secondAttribute="centerY" id="lbl-c-002"/>
+                            <constraint firstItem="lbl-empt-001" firstAttribute="leading" secondItem="lzX-mZ-vTN" secondAttribute="leading" constant="24" id="lbl-c-003"/>
+                            <constraint firstItem="lzX-mZ-vTN" firstAttribute="trailing" secondItem="lbl-empt-001" secondAttribute="trailing" constant="24" id="lbl-c-004"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ghg-8K-hU3"/>
+                    <navigationItem key="navigationItem" title="Explorar Personajes" id="Ghg-8K-hU3"/>
                     <connections>
                         <outlet property="listTable" destination="vxq-SB-lrS" id="KlS-jR-TIe"/>
+                        <outlet property="searchBar" destination="lSB-sr-001" id="lSC-o-001"/>
+                        <outlet property="emptyLabel" destination="lbl-empt-001" id="lbl-o-001"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEJ-VF-A0w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -728,6 +739,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDf-Dx-9yV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4630" y="-712"/>
+        </scene>
+        <!--Splash-->
+        <scene sceneID="spl-sc-001">
+            <objects>
+                <viewController storyboardIdentifier="Splash" id="spl-vc-001" customClass="SplashViewController" customModule="HelloWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="spl-vw-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="spl-iv-001">
+                                <rect key="frame" x="71.5" y="104" width="250" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="spl-c-001"/>
+                                    <constraint firstAttribute="height" constant="150" id="spl-c-002"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleAspectFit" customClass="LottieAnimationView" customModule="Lottie" translatesAutoresizingMaskIntoConstraints="NO" id="spl-lv-001">
+                                <rect key="frame" x="46.5" y="284" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="spl-c-003"/>
+                                    <constraint firstAttribute="height" constant="300" id="spl-c-004"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="spl-sa-001"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="spl-iv-001" firstAttribute="centerX" secondItem="spl-vw-001" secondAttribute="centerX" id="spl-c-005"/>
+                            <constraint firstItem="spl-iv-001" firstAttribute="top" secondItem="spl-sa-001" secondAttribute="top" constant="60" id="spl-c-006"/>
+                            <constraint firstItem="spl-lv-001" firstAttribute="centerX" secondItem="spl-vw-001" secondAttribute="centerX" id="spl-c-007"/>
+                            <constraint firstItem="spl-lv-001" firstAttribute="top" secondItem="spl-iv-001" secondAttribute="bottom" constant="30" id="spl-c-008"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="spl-ni-001"/>
+                    <connections>
+                        <outlet property="animationView" destination="spl-lv-001" id="spl-o-001"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="spl-ph-001" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5630" y="-712"/>
         </scene>
     </scenes>
     <resources>

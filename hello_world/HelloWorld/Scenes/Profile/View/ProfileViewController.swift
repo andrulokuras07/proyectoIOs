@@ -83,6 +83,7 @@ extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerCo
         
         // Cambia la presentación para mostrar la foto seleccionada
         profileImage.contentMode = .scaleAspectFill
+        profileImage.clipsToBounds = true
         profileImage.image = image
     }
     
